@@ -1,0 +1,28 @@
+# Git ignore file for HostelConnect GH
+
+# Environment variables (NEVER commit these)
+.env
+*.env
+
+# Maven
+target/
+*.class
+*.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Docker volumes
+postgres_data/
+redis_data/

@@ -1,0 +1,85 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.hostelconnect:hostelconnect-gh >-----------------
+[INFO] Building hostelconnect-gh 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.3:run (default-cli) > test-compile @ hostelconnect-gh >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ hostelconnect-gh ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 6 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ hostelconnect-gh ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ hostelconnect-gh ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ hostelconnect-gh ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:3.2.3:run (default-cli) < test-compile @ hostelconnect-gh <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.3:run (default-cli) @ hostelconnect-gh ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-02-22T20:53:11.574Z  INFO 25484 --- [hostelconnect-gh] [           main] c.h.HostelConnectApplication             : Starting HostelConnectApplication using Java 24.0.1 with PID 25484 (C:\Users\SAVAGE\HOSTEL_HIVE\target\classes started by SAVAGE in C:\Users\SAVAGE\HOSTEL_HIVE)
+2026-02-22T20:53:11.575Z  INFO 25484 --- [hostelconnect-gh] [           main] c.h.HostelConnectApplication             : No active profile set, falling back to 1 default profile: "default"
+2026-02-22T20:53:12.419Z  INFO 25484 --- [hostelconnect-gh] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-22T20:53:12.420Z  INFO 25484 --- [hostelconnect-gh] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-22T20:53:12.547Z  INFO 25484 --- [hostelconnect-gh] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120 ms. Found 5 JPA repository interfaces.
+2026-02-22T20:53:12.558Z  INFO 25484 --- [hostelconnect-gh] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-22T20:53:12.558Z  INFO 25484 --- [hostelconnect-gh] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-22T20:53:12.570Z  INFO 25484 --- [hostelconnect-gh] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.hostelconnect.repository.AgentProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-22T20:53:12.570Z  INFO 25484 --- [hostelconnect-gh] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.hostelconnect.repository.ListingPhotoRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-22T20:53:12.570Z  INFO 25484 --- [hostelconnect-gh] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.hostelconnect.repository.ListingRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-22T20:53:12.570Z  INFO 25484 --- [hostelconnect-gh] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.hostelconnect.repository.UserCredentialsRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-22T20:53:12.571Z  INFO 25484 --- [hostelconnect-gh] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.hostelconnect.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-22T20:53:12.571Z  INFO 25484 --- [hostelconnect-gh] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/C:/Users/SAVAGE/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.19/tomcat-embed-core-10.1.19.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-02-22T20:53:13.530Z  INFO 25484 --- [hostelconnect-gh] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-02-22T20:53:13.540Z  INFO 25484 --- [hostelconnect-gh] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-22T20:53:13.541Z  INFO 25484 --- [hostelconnect-gh] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-02-22T20:53:13.598Z  INFO 25484 --- [hostelconnect-gh] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-22T20:53:13.599Z  INFO 25484 --- [hostelconnect-gh] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1982 ms
+2026-02-22T20:53:14.018Z  INFO 25484 --- [hostelconnect-gh] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-22T20:53:14.168Z  INFO 25484 --- [hostelconnect-gh] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2f75a9b1
+2026-02-22T20:53:14.170Z  INFO 25484 --- [hostelconnect-gh] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-22T20:53:14.198Z  INFO 25484 --- [hostelconnect-gh] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5433/hostelconnect (PostgreSQL 15.16)
+2026-02-22T20:53:14.265Z  INFO 25484 --- [hostelconnect-gh] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 6 migrations (execution time 00:00.038s)
+2026-02-22T20:53:14.309Z  INFO 25484 --- [hostelconnect-gh] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 6
+2026-02-22T20:53:14.313Z  INFO 25484 --- [hostelconnect-gh] [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-22T20:53:14.406Z  INFO 25484 --- [hostelconnect-gh] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-22T20:53:14.450Z  INFO 25484 --- [hostelconnect-gh] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-02-22T20:53:14.480Z  INFO 25484 --- [hostelconnect-gh] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-02-22T20:53:14.818Z  INFO 25484 --- [hostelconnect-gh] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-22T20:53:14.891Z  WARN 25484 --- [hostelconnect-gh] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-22T20:53:16.002Z  INFO 25484 --- [hostelconnect-gh] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-22T20:53:16.052Z  INFO 25484 --- [hostelconnect-gh] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-22T20:53:16.515Z  INFO 25484 --- [hostelconnect-gh] [           main] c.h.service.LocalFileStorageService      : File storage initialized at: C:\Users\SAVAGE\HOSTEL_HIVE\uploads
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by io.netty.util.internal.PlatformDependent0$4 (file:/C:/Users/SAVAGE/.m2/repository/io/netty/netty-common/4.1.107.Final/netty-common-4.1.107.Final.jar)
+WARNING: Please consider reporting this to the maintainers of class io.netty.util.internal.PlatformDependent0$4
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+2026-02-22T20:53:16.864Z  INFO 25484 --- [hostelconnect-gh] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-22T20:53:17.472Z  WARN 25484 --- [hostelconnect-gh] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-22T20:53:18.043Z  INFO 25484 --- [hostelconnect-gh] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-02-22T20:53:18.993Z  INFO 25484 --- [hostelconnect-gh] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-02-22T20:53:19.008Z  INFO 25484 --- [hostelconnect-gh] [           main] c.h.HostelConnectApplication             : Started HostelConnectApplication in 7.756 seconds (process running for 8.057)
+2026-02-22T20:53:19.132Z  INFO 25484 --- [hostelconnect-gh] [           main] com.hostelconnect.config.AdminSeeder     : Running Admin Seeder...
+2026-02-22T20:53:19.279Z  INFO 25484 --- [hostelconnect-gh] [           main] com.hostelconnect.config.AdminSeeder     : Admin seeder execution finished.

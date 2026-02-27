@@ -1,0 +1,93 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.hostelconnect:hostelconnect-gh >-----------------
+[INFO] Building hostelconnect-gh 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ hostelconnect-gh ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 6 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ hostelconnect-gh ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 62 source files with javac [debug parameters release 17] to target\classes
+mvn : WARNING: A 
+terminally 
+deprecated method in 
+sun.misc.Unsafe has 
+been called
+At line:1 char:1
++ mvn compile 
+-DskipTests > 
+mvn_output.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (WARNING   
+ : A term...has b    
+een called:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+WARNING: sun.misc.Uns
+afe::objectFieldOffse
+t has been called by 
+lombok.permit.Permit
+WARNING: Please 
+consider reporting 
+this to the 
+maintainers of class 
+lombok.permit.Permit
+WARNING: sun.misc.Uns
+afe::objectFieldOffse
+t will be removed in 
+a future release
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/SAVAGE/HOSTEL_HIVE/src/main/java/com/hostelconnect/config/SecurityConfig.java:[25,23] cannot find symbol
+  symbol:   class CustomOAuth2UserService
+  location: class com.hostelconnect.config.SecurityConfig
+[ERROR] /C:/Users/SAVAGE/HOSTEL_HIVE/src/main/java/com/hostelconnect/config/SecurityConfig.java:[26,23] cannot find symbol
+  symbol:   class OAuth2SuccessHandler
+  location: class com.hostelconnect.config.SecurityConfig
+[ERROR] /C:/Users/SAVAGE/HOSTEL_HIVE/src/main/java/com/hostelconnect/config/SecurityConfig.java:[21,1] cannot find symbol
+  symbol:   class CustomOAuth2UserService
+  location: class com.hostelconnect.config.SecurityConfig
+[ERROR] /C:/Users/SAVAGE/HOSTEL_HIVE/src/main/java/com/hostelconnect/service/ListingService.java:[12,35] cannot find symbol
+  symbol:   class ForbiddenException
+  location: package com.hostelconnect.exception
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.638 s
+[INFO] Finished at: 2026-02-22T20:09:05Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project hostelconnect-gh: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/SAVAGE/HOSTEL_HIVE/src/main/java/com/hostelconnect/config/SecurityConfig.java:[25,23] cannot find symbol
+[ERROR]   symbol:   class CustomOAuth2UserService
+[ERROR]   location: class com.hostelconnect.config.SecurityConfig
+[ERROR] /C:/Users/SAVAGE/HOSTEL_HIVE/src/main/java/com/hostelconnect/config/SecurityConfig.java:[26,23] cannot find symbol
+[ERROR]   symbol:   class OAuth2SuccessHandler
+[ERROR]   location: class com.hostelconnect.config.SecurityConfig
+[ERROR] /C:/Users/SAVAGE/HOSTEL_HIVE/src/main/java/com/hostelconnect/config/SecurityConfig.java:[21,1] cannot find symbol
+[ERROR]   symbol:   class CustomOAuth2UserService
+[ERROR]   location: class com.hostelconnect.config.SecurityConfig
+[ERROR] /C:/Users/SAVAGE/HOSTEL_HIVE/src/main/java/com/hostelconnect/service/ListingService.java:[12,35] cannot find symbol
+[ERROR]   symbol:   class ForbiddenException
+[ERROR]   location: package com.hostelconnect.exception
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

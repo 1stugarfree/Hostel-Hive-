@@ -1,0 +1,88 @@
+# Phase 10 Walkthrough — Featured Listings & Paystack Payments
+
+## ✅ Build Status: SUCCESS (109 source files compiled)
+
+---
+
+## What Was Implemented
+
+### Backend (Spring Boot)
+
+| File | Purpose |
+|------|---------|
+| [V14__featured_listings_and_payments.sql](file:///d:/HOSTEL_HIVE/src/main/resources/db/migration/V14__featured_listings_and_payments.sql) | Adds `is_featured`, `featured_until` to listings; creates `payments` table |
+| [PaymentStatus.java](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/enums/PaymentStatus.java) (enum) | `PENDING`, `SUCCESS`, `FAILED` |
+| [Payment.java](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/entity/Payment.java) (entity) | JPA entity for the payments table |
+| [PaymentRepository.java](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/repository/PaymentRepository.java) | [findByPaystackReference()](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/repository/PaymentRepository.java#13-14) lookup |
+| [PaystackConfig.java](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/config/PaystackConfig.java) | Reads secret key, price, duration from env/yml |
+| [PaymentService.java](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/service/PaymentService.java) | Paystack API calls: initialize, verify, webhook, daily expiry job |
+| [PaystackController.java](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/controller/PaystackController.java) | `POST /initialize`, `GET /verify`, `POST /webhook`, `GET /pricing` |
+| [Listing.java](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/entity/Listing.java) (modified) | Added `featured`, `featuredUntil` fields |
+| [ListingRepository.java](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/repository/ListingRepository.java) (modified) | Added [expireFeatureListings()](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/repository/ListingRepository.java#31-36) JPQL update |
+| [SecurityConfig.java](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/config/SecurityConfig.java) (modified) | Webhook & pricing endpoints made public; port 3001 added to CORS |
+| [HostelConnectApplication.java](file:///d:/HOSTEL_HIVE/src/main/java/com/hostelconnect/HostelConnectApplication.java) (modified) | Added `@EnableScheduling` |
+| [application.yml](file:///d:/HOSTEL_HIVE/src/main/resources/application.yml) (modified) | Added `app.paystack.*` config block |
+
+### Frontend (Next.js)
+
+| File | Purpose |
+|------|---------|
+| [src/app/featured/page.tsx](file:///d:/HOSTEL_HIVE/frontend/src/app/featured/page.tsx) | Boost Listing page — pricing card, listing selector, Paystack redirect |
+| [src/app/payment/callback/page.tsx](file:///d:/HOSTEL_HIVE/frontend/src/app/payment/callback/page.tsx) | Payment result page — verifies reference, shows success/failure |
+| [src/app/page.tsx](file:///d:/HOSTEL_HIVE/frontend/src/app/page.tsx) (modified) | Added ⭐ Boost Listing nav link |
+
+---
+
+## How It Works
+
+```mermaid
+sequenceDiagram
+    Agent->>Frontend: Clicks "Boost Listing" in nav
+    Frontend->>Backend: POST /api/payments/initialize
+    Backend->>Paystack API: Initialize transaction (GHS 50)
+    Paystack API-->>Backend: authorizationUrl + reference
+    Backend-->>Frontend: { authorizationUrl, reference }
+    Frontend->>Paystack: Redirect to hosted payment page
+    Agent->>Paystack: Completes payment (card/MoMo)
+    Paystack->>Frontend: Redirect to /payment/callback?reference=xxx
+    Frontend->>Backend: GET /api/payments/verify?reference=xxx
+    Backend->>Paystack API: Verify transaction
+    Paystack API-->>Backend: status=success
+    Backend->>DB: listing.is_featured=true, featured_until=+30 days
+    Backend-->>Frontend: { featuredActivated: true, featuredUntil: ... }
+    Frontend->>Agent: Shows success screen ⭐
+```
+
+---
+
+## Configuration Required
+
+Set these environment variables before testing:
+
+```env
+PAYSTACK_SECRET_KEY=sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+FRONTEND_URL=http://localhost:3001
+```
+
+---
+
+## Testing Checklist
+
+1. Navigate to **http://localhost:3001** → click **⭐ Boost Listing** in nav
+2. Log in as a verified agent
+3. Select a listing → click **Pay with Paystack**
+4. Use test card: `4084 0840 8408 4081`, CVV `408`, Expiry `01/26`
+5. Verify redirect to `/payment/callback` shows **Payment Successful ⭐**
+6. Check DB: `SELECT is_featured, featured_until FROM listings WHERE id = '...'`
+7. Daily expiry: runs at midnight via `@Scheduled(cron = "0 0 0 * * *")`
+
+---
+
+## API Reference (New Endpoints)
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| `POST` | `/api/payments/initialize` | Agent JWT | Start Paystack transaction |
+| `GET` | `/api/payments/verify?reference=xxx` | Agent JWT | Verify & activate featured |
+| `POST` | `/api/payments/webhook` | Public (HMAC verified) | Paystack webhook |
+| `GET` | `/api/payments/pricing` | Public | Get current featured price/duration |
